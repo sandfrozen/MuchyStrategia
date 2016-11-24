@@ -6,6 +6,7 @@
 package muchystrategia;
 
 import java.awt.Color;
+import java.util.Random;
 
 /**
  *
@@ -15,8 +16,11 @@ public class StrategiaLotuMuchyRandom implements StrategiaLotuMuchy {
 
     @Override
     public void lot(Mucha m) {
-        m.vx = m.k * (Math.random() - Math.random());
-        m.vy = m.k * (Math.random() - Math.random());
+        double kat = new Random().nextDouble() * 0.9 - 0.45;//new Random().nextDouble() * 0.2;
+        double vx2 = (m.vx * (Math.cos(kat))) - (m.vy * (Math.sin(kat)));
+        double vy2 = (m.vx * (Math.sin(kat))) + (m.vy * (Math.cos(kat)));
+        m.vx = vx2;
+        m.vy = vy2;
     }
 
     @Override
